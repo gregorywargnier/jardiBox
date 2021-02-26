@@ -1,3 +1,35 @@
 home:
     path: /
     controller: App\Controller\HomeController
+
+garden:
+    path: /garden
+    controller: App\Controller\allCategories\GardenController
+
+outside:
+    path: /outside
+    controller: App\Controller\allCategories\OutsideController
+
+house:
+    path: /house
+    controller: App\Controller\allCategories\HouseController
+
+animals:
+    path: /animals
+    controller: App\Controller\allCategories\AnimalsController
+
+commitment:
+    path: /commitment
+    controller: App\Controller\Services\CommitmentController
+
+delivery-retuns:
+    path: /delivery-returns
+    controller: App\Controller\Services\DeliveryretunsController
+
+fidelity:
+    path: /fidelity
+    controller: App\Controller\Services\FidelityController
+
+gift-card:
+    path: /gift-card
+    controller: App\Controller\Services\GiftcardController
