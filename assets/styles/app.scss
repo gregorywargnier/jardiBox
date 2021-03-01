@@ -101,3 +101,32 @@ p{
     text-align: center;
   }
 }
+.border-card{
+  border: solid #ff6600;
+  padding: 20px;
+  margin: 20px;
+}
+.card-see{
+  padding: 20px;
+  margin: 20px;
+  justify-items: center;
+  p{
+    padding: 10px;
+    margin: 10px;
+  }
+  .fa-check-circle{
+    color:#ff6600;
+  }
+}
+.vertical{
+  width:100%;
+  border-left:10px solid #ff6600;
+  height:100%;
+  margin-left: 50%;
+}
+.horizontal{
+  width:100%;
+  border-top:10px solid #ff6600;
+  height:100%;
+  margin-top: 20px;
+}
