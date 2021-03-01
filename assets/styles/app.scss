@@ -1,5 +1,6 @@
 @import "~bootstrap/scss/bootstrap";
 @import "~Font-Awesome/scss/font-awesome";
+
 /*body*/
 body{
   background-color: #fff;
@@ -59,7 +60,6 @@ ul{
       text-decoration:none;
     }
   }
-
 }
 .card{
   margin: 30px auto;
@@ -69,4 +69,64 @@ ul{
 p{
   vertical-align:middle;
   display: table-cell;
+}
+
+/* allCategories */
+#justification{
+  border: solid;
+  padding: 10px;
+  p{
+    margin: 10px;
+  }
+}
+.garden{
+  background-color: #cbdcc9;
+}
+.house{
+  background-color: #bad8d8;
+}
+.animals{
+  background-color: #c7b5b3;
+}
+.outside{
+  background-color: #fdc9ba;
+}
+/*commitment*/
+.commitment{
+  .card{
+    width: 18rem;
+    height: 18rem;
+  }
+  h5{
+    text-align: center;
+  }
+}
+.border-card{
+  border: solid #ff6600;
+  padding: 20px;
+  margin: 20px;
+}
+.card-see{
+  padding: 20px;
+  margin: 20px;
+  justify-items: center;
+  p{
+    padding: 10px;
+    margin: 10px;
+  }
+  .fa-check-circle{
+    color:#ff6600;
+  }
+}
+.vertical{
+  width:100%;
+  border-left:10px solid #ff6600;
+  height:100%;
+  margin-left: 50%;
+}
+.horizontal{
+  width:100%;
+  border-top:10px solid #ff6600;
+  height:100%;
+  margin-top: 20px;
 }
