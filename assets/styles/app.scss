@@ -1,4 +1,132 @@
 @import "~bootstrap/scss/bootstrap";
+@import "~Font-Awesome/scss/font-awesome";
+
+/*body*/
 body{
-  background-color: #B0413E;
+  background-color: #fff;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+main {
+  flex: 1 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+/*nav and footer*/
+footer{
+  background-color:#28a745 ;
+
+}
+a {
+  color:black;
+  text-decoration:none;
+}
+a:link{
+  text-decoration:none;
+}
+page-footer{
+  bottom:0;
+
+  width:100%;
+
+  padding-top:50px;
+
+  height:50px;
+}
+
+/*summary*/
+.summary{
+  background-color: #6da765;
+
+}
+
+/*homepage*/
+h1{
+  text-align: center;
+}
+h4{
+  text-align: center;
+}
+ul{
+  li{
+    list-style-type: none;
+    a {
+      color:black;
+      text-decoration:none;
+    }
+    a:link{
+      text-decoration:none;
+    }
+  }
+}
+.card{
+  margin: 30px auto;
+  width: 200px;
+  height: 250px;
+}
+p{
+  vertical-align:middle;
+  display: table-cell;
+}
+
+/* allCategories */
+#justification{
+  border: solid;
+  padding: 10px;
+  p{
+    margin: 10px;
+  }
+}
+.garden{
+  background-color: #cbdcc9;
+}
+.house{
+  background-color: #bad8d8;
+}
+.animals{
+  background-color: #c7b5b3;
+}
+.outside{
+  background-color: #fdc9ba;
+}
+/*commitment*/
+.commitment{
+  .card{
+    width: 18rem;
+    height: 18rem;
+  }
+  h5{
+    text-align: center;
+  }
+}
+.border-card{
+  border: solid #ff6600;
+  padding: 20px;
+  margin: 20px;
+}
+.card-see{
+  padding: 20px;
+  margin: 20px;
+  justify-items: center;
+  p{
+    padding: 10px;
+    margin: 10px;
+  }
+  .fa-check-circle{
+    color:#ff6600;
+  }
+}
+.vertical{
+  width:100%;
+  border-left:10px solid #ff6600;
+  height:100%;
+  margin-left: 50%;
+}
+.horizontal{
+  width:100%;
+  border-top:10px solid #ff6600;
+  height:100%;
+  margin-top: 20px;
 }
