@@ -33,3 +33,7 @@ fidelity:
 gift-card:
     path: /gift-card
     controller: App\Controller\Services\GiftcardController
+
+contact:
+    path: /contact
+    controller: App\Controller\contact\ContactController
