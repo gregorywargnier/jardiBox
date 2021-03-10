@@ -38,6 +38,3 @@ contact:
     path: /contact
     controller: App\Controller\contact\ContactController
 
-contact:
-    path: /contact
-    controller: App\Controller\contact\ContactController
