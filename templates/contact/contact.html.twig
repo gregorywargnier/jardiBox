@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}contact{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>{% trans %} Contact us {% endtrans %}</h1>
+    <p class="text-center">Pour nous contacter, veuillez remplir ce formulaire</p>
+    <div class="justify-content-center text-center">
+        {{ form_start( form ) }}
+       <div class="row mt-2">
+           <div class="col-4">
+               {{ form_label(form.lastName) }}
+               {{ form_widget(form.lastName) }}
+               <div class="invalid-feedback">
+                   {{ form_errors(form.lastName) }}
+               </div>
+           </div>
+           <div class="col-4">
+               {{ form_label(form.firstName) }}
+               {{ form_widget(form.firstName) }}
+               <div class="invalid-feedback">
+                   {{ form_errors(form.firstName) }}
+               </div>
+           </div>
+           <div class="col-4">
+               {{ form_label(form.mail) }}
+               {{ form_widget(form.mail) }}
+               <div class="invalid-feedback">
+                   {{ form_errors(form.mail) }}
+               </div>
+           </div>
+           <div class="col-12 mt-4">
+               {{ form_label(form.description) }}
+               {{ form_widget(form.description) }}
+               <div class="invalid-feedback">
+                   {{ form_errors(form.description) }}
+               </div>
+           </div>
+           <div class="col-12">
+               <button type="submit" class="btn btn-primary">{% trans %} Send {% endtrans %}</button>
+           </div>
+       </div>
+
+
+    </div>
+    {{ form_end(form) }}
+</div>
+{% endblock %}
