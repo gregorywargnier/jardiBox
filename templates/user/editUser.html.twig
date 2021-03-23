@@ -1,0 +1,59 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{% trans %}Edit user{% endtrans %}{% endblock %}
+{% block content %}
+<div class="container">
+    <h1>{% trans %}Edit user{% endtrans %}</h1>
+    <div class="justify-content-center text-center">
+        {{ form_start( form ) }}
+        <div class="col-4 mx-auto">
+            <div class="">
+                {{ form_label(form.phone) }}
+                {{ form_widget(form.phone) }}
+                <div class="invalid-feedback">
+                    {{ form_errors(form.phone) }}
+                </div>
+            </div>
+            <div class="">
+                {{ form_label(form.address) }}
+                {{ form_widget(form.address) }}
+                <div class="invalid-feedback">
+                    {{ form_errors(form.address) }}
+                </div>
+            </div>
+            <div class="">
+                {{ form_label(form.aditionnalAddress) }}
+                {{ form_widget(form.aditionnalAddress) }}
+                <div class="invalid-feedback">
+                    {{ form_errors(form.aditionnalAddress) }}
+                </div>
+            </div>
+            <div class="">
+                {{ form_label(form.city) }}
+                {{ form_widget(form.city) }}
+                <div class="invalid-feedback">
+                    {{ form_errors(form.city) }}
+                </div>
+            </div>
+            <div class="">
+                {{ form_label(form.postalCode) }}
+                {{ form_widget(form.postalCode) }}
+                <div class="invalid-feedback">
+                    {{ form_errors(form.postalCode) }}
+                </div>
+            </div>
+            <div class="">
+                {{ form_label(form.email) }}
+                {{ form_widget(form.email) }}
+                <div class="invalid-feedback">
+                    {{ form_errors(form.email) }}
+                </div>
+            </div>
+            <div>
+                <button type="submit" class="btn btn-lg btn-primary">{% trans %} Send {% endtrans %}</button>
+            </div>
+        </div>
+        {{ form_end(form) }}
+    </div>
+</div>
+{% endblock %}

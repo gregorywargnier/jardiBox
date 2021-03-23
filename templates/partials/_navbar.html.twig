@@ -1,20 +1,43 @@
-<div class="alert alert-dark mb-0" role="alert">
-    <p class ="text-center">Avec vous au quotidien, nos services de RETRAIT GRATUIT EN MAGASIN et de LIVRAISON À DOMICILE sont assurés.</p>
-</div>
-<nav class="navbar navbar-light  bg-success">
+<nav class="navbar navbar-expand-lg navbar-light bg-success">
     <div class="container-fluid">
-        <form class="d-flex">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success" type="submit">Search</button>
-        </form>
-        <div class=" justify-content-center">
-            <a class="navbar-brand" href="{{ path('home') }}">
-                JardiBox
-            </a>
-        </div>
-        <div class="justify-content-end">
-            <a href="{{ path('user') }}">{% trans %} Registration {% endtrans %}</a>
-            <a href="{{ path('login') }}">{% trans %} Login {% endtrans %}</a>
+        <a class="navbar-brand" href="{{ path('home') }}">JardiBox</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    {% if app.user is empty %}
+                    <a class="nav-link" href="{{ path('user') }}">{% trans %} Registration {% endtrans %}</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path('login') }}">{% trans %} Login {% endtrans %}</a>
+                </li>
+                {% else %}
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            {% trans %} My profile {% endtrans %}
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li>
+                                <a class="dropdown-item" href="{{ path('account') }}">
+                                    {% trans %}My personal information{% endtrans %}
+                                </a>
+                            </li>
+                            {% if is_granted('ROLE_ADMIN') %}
+                            <li><a class="dropdown-item" href="#">{% trans %}Admin{% endtrans %}</a></li>
+                            {% endif %}
+                            <li><a class="dropdown-item" href="#">Mes commandes en ligne</a></li>
+                            <li><a class="dropdown-item" href="#">Mes services</a></li>
+                            <li><a class="dropdown-item" href="{{ path('logout') }}">{% trans %} Logout {% endtrans %}</a></li>
+                        </ul>
+                    </li>
+                {% endif %}
+            </ul>
+            <form class="d-flex">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-light" type="submit">Search</button>
+            </form>
         </div>
     </div>
 </nav>

@@ -15,9 +15,9 @@ use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 class RegistreController extends AbstractController
 {
     private $encoder;
-
     private $urlGenerator;
     private $UserService;
+
 
     public function __construct(UserPasswordEncoderInterface $encoder, UserService $UserService, UrlGeneratorInterface $urlGenerator)
     {
@@ -52,7 +52,7 @@ class RegistreController extends AbstractController
             $em->persist($user);
             $em->flush();
 
-           // $this->mailer->sendActivationMail($user);
+          // $this->mailer->sendActivationMail($user);
 
            // $this->addFlash('green accent-3', 'Votre compte à bien été créé, activez le pour pouvoir vous connecter');
             return $this->redirectToRoute('login');

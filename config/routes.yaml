@@ -42,10 +42,22 @@ user:
     path: /user
     controller: App\Controller\User\RegistreController
 
+account:
+    path: /user/account
+    controller: App\Controller\User\AccountController
+
+edit_user:
+    path: /user/account/edit_user
+    controller: App\Controller\User\EditUserController
+
 login:
     path: /login
-    controller: App\Controller\SecurityController
+    controller: App\Controller\User\Security\SecurityController
 
 logout:
     path: /logout
-    controller: App\Controller\SecurityController
+    controller: App\Controller\User\Security\SecurityController
+
+forgot_password:
+    path: /forgot_password
+    controller: App\Controller\User\Password\PasswordController

@@ -1,10 +1,31 @@
 ##sumary##
 ##homepage##
-##user##
+##user-identification##
 Registration: Inscription
 Login: Connexion
+Logout: Déconnexion
 Sign in: S'identifier
 Password: Mot de passe
+Forgot password: Mot de passe oublié
+Reset password: Réinitialisation du mot de passe
+Enter your email address to reset your password: Saisissez votre adresse email pour réinitialisez votre mot de passe
+##user##
+My profile: Mon profil
+Account: Mon compte
+My personal information: Mes informations personnelles
+Lastname: Nom
+Firstname: Prénom
+Phone: Téléphone
+Address: Adresse
+Aditionnal address: Complément d'adresse
+City: Ville
+Postal code: Code postale
+Email: Email
+Change the password: Changer le mot de passe
+Edit my profil: Modifier mon profil
+Edit user: Modifier l'utilisateur
+##User_admin##
+Admin: Administrateur
 ##contact##
 Contact us: Nous contacter
 Send: Envoyer

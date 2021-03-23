@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{% trans %}Account{% endtrans %}{% endblock %}
+{% block content %}
+<div class="container">
+    <h1>{% trans %}My personal information{% endtrans %}</h1>
+    <div class="row my-4">
+        <div class="col-4">
+            <div class="my-2">
+                <span>{% trans %} Lastname {% endtrans %}: {{ app.user.lastname }}</span>
+            </div>
+            <div class="my-2">
+                <span>{% trans %} Firstname {% endtrans %}: {{ app.user.firstname }}</span>
+            </div>
+            <div class="my-2">
+                <span>{% trans %} Phone {% endtrans %}: {{ app.user.phone }}</span>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="my-2">
+                <span>{% trans %} Address {% endtrans %}: {{ app.user.address }}</span>
+            </div>
+                {% if app.user.aditionnalAddress is not empty %}
+                <div class="my-2">
+                    <span>{% trans %} Aditionnal address {% endtrans %}: {{ app.user.aditionnalAddress }}</span>
+                </div>
+            {% endif %}
+            <div class="my-2">
+                <span>{% trans %}Postal code {% endtrans %}: {{ app.user.postalCode }}</span>
+            </div>
+            <div class="my-2">
+                <span>{% trans %}City {% endtrans %}: {{ app.user.city }}</span>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="my-2">
+                <span>{% trans %} Email {% endtrans %}: {{ app.user.email }}</span>
+            </div>
+            <div class="my-2">
+                <span>{% trans %} Password {% endtrans %}: ****</span>
+                <div>
+                    <a href="">{% trans %}Change the password{% endtrans %}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="text-center">
+        <a href="{{ path('edit_user') }}">
+            <button type="button" class="btn btn-primary btn-lg  my-4">{% trans %} Edit my profil {% endtrans %}</button>
+        </a>
+    </div>
+</div>
+
+{% endblock %}
