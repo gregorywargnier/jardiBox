@@ -4,6 +4,7 @@ namespace App\Controller\User;
 
 use App\Entity\User;
 use App\Form\RegisterType;
+use App\service\MailerService;
 use App\service\UserService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -17,13 +18,15 @@ class RegistreController extends AbstractController
     private $encoder;
     private $urlGenerator;
     private $UserService;
+    private $mailer;
 
 
-    public function __construct(UserPasswordEncoderInterface $encoder, UserService $UserService, UrlGeneratorInterface $urlGenerator)
+    public function __construct(UserPasswordEncoderInterface $encoder, UserService $UserService, UrlGeneratorInterface $urlGenerator, MailerService $mailer)
     {
         $this->encoder = $encoder;
         $this->urlGenerator = $urlGenerator;
         $this->UserService = $UserService;
+        $this->mailer = $mailer;
     }
 
     public function __invoke(Request $request): Response
@@ -52,7 +55,7 @@ class RegistreController extends AbstractController
             $em->persist($user);
             $em->flush();
 
-          // $this->mailer->sendActivationMail($user);
+           $this->mailer->sendActivationMail();
 
            // $this->addFlash('green accent-3', 'Votre compte à bien été créé, activez le pour pouvoir vous connecter');
             return $this->redirectToRoute('login');

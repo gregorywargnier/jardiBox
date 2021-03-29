@@ -12,7 +12,7 @@ class AccountController extends AbstractController
 {
     public function __invoke(UserRepository $user): Response
     {
-        $account= $user->findAll();
+        $user->findAll();
         return $this->render('user/account.html.twig', [
             'Account' => '$account',
         ]);

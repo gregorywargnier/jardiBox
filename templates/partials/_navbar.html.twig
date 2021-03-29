@@ -8,7 +8,7 @@
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
                     {% if app.user is empty %}
-                    <a class="nav-link" href="{{ path('user') }}">{% trans %} Registration {% endtrans %}</a>
+                    <a class="nav-link" href="{{ path('registration') }}">{% trans %} Registration {% endtrans %}</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ path('login') }}">{% trans %} Login {% endtrans %}</a>

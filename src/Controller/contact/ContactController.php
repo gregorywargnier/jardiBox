@@ -4,14 +4,23 @@ namespace App\Controller\contact;
 
 use App\Entity\Contact;
 use App\Form\ContactType;
+use App\service\MailerService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 class ContactController extends AbstractController
 {
+    private $mailer;
 
-    public function __invoke(Request $request): Response
+    public function __construct(MailerService $mailer)
+    {
+
+        $this->mailer = $mailer;
+
+    }
+
+    public function __invoke(Request $request, MailerService $mailer): Response
     {
         $contact = new Contact();
         $form = $this->createForm(ContactType::class, $contact);
@@ -25,9 +34,9 @@ class ContactController extends AbstractController
             $em->persist($contact);
             $em->flush();
             //email for contact us
-           // $mailerService->sendContactMessage($contact->getEmail(), $contact);
+            $mailer->sendContactMessage($contact->getMail());
             //homepage message after the user ask information
-           // $this->addFlash('green accent-3', 'Votre demande a bien été enregistré, Il sera traité dans les plus bref délais');
+           $this->addFlash('success', 'Votre demande a bien été enregistré, Il sera traité dans les plus bref délais');
             return $this->redirectToRoute('home');
         }
         return $this->render('contact/contact.html.twig', [

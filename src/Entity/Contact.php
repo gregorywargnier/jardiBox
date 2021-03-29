@@ -105,4 +105,5 @@ class Contact
 
         return $this;
     }
+
 }

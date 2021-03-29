@@ -38,9 +38,13 @@ contact:
     path: /contact
     controller: App\Controller\contact\ContactController
 
-user:
-    path: /user
+registration:
+    path: /registration
     controller: App\Controller\User\RegistreController
+
+reset_password:
+    path: /reset_password/{token}
+    controller: App\Controller\User\Password\ResetPasswordController
 
 account:
     path: /user/account
@@ -61,3 +65,9 @@ logout:
 forgot_password:
     path: /forgot_password
     controller: App\Controller\User\Password\PasswordController
+
+renew_password:
+    path: /user/account/renew_password
+    controller: App\Controller\User\Password\RenewPasswordController
+
+
