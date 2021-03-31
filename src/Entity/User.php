@@ -5,7 +5,7 @@ namespace App\Entity;
 use App\Repository\UserRepository;
 use DateTimeInterface;
 use Doctrine\ORM\Mapping as ORM;
-use Ramsey\Uuid\UuidInterface as UUID;
+
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -17,12 +17,9 @@ use Symfony\Component\Validator\Constraints as Assert;
 class User implements UserInterface
 {
     /**
-     * @var UUID
-     *
-     * @ORM\Id
-     * @ORM\Column(type="uuid", unique=true)
-     * @ORM\GeneratedValue(strategy="CUSTOM")
-     * @ORM\CustomIdGenerator(class="Ramsey\Uuid\Doctrine\UuidGenerator")
+     * @ORM\Id()
+     * @ORM\GeneratedValue()
+     * @ORM\Column(type="integer")
      */
     private $id;
 
@@ -114,7 +111,7 @@ class User implements UserInterface
     private $tokenExpire;
 
 
-    public function getId(): UUID
+    public function getId()
     {
         return $this->id;
     }

@@ -1,6 +1,19 @@
 home:
     path: /
     controller: App\Controller\HomeController
+##userRegister##
+registration:
+    path: /registration
+    controller: App\Controller\User\RegistreController
+
+##userIdentification##
+login:
+    path: /login
+    controller: App\Controller\User\Security\SecurityController
+
+logout:
+    path: /logout
+    controller: App\Controller\User\Security\SecurityController
 
 garden:
     path: /garden
@@ -33,6 +46,11 @@ fidelity:
 gift-card:
     path: /gift-card
     controller: App\Controller\Services\GiftcardController
+
+##information##
+newsletter:
+    path: /newsletter
+    controller: App\Controller\contact\NewsletterController
 
 contact:
     path: /contact

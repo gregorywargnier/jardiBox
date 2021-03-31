@@ -27,7 +27,7 @@ class ContactController extends AbstractController
             //email for contact us
            // $mailerService->sendContactMessage($contact->getEmail(), $contact);
             //homepage message after the user ask information
-           // $this->addFlash('green accent-3', 'Votre demande a bien été enregistré, Il sera traité dans les plus bref délais');
+            $this->addFlash('success', 'Votre demande a bien été enregistré, Il sera traité dans les plus bref délais');
             return $this->redirectToRoute('home');
         }
         return $this->render('contact/contact.html.twig', [

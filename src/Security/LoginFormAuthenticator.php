@@ -20,11 +20,11 @@ use Symfony\Component\Security\Guard\Authenticator\AbstractFormLoginAuthenticato
 use Symfony\Component\Security\Guard\PasswordAuthenticatedInterface;
 use Symfony\Component\Security\Http\Util\TargetPathTrait;
 
-class LoginCustomAuthenticator extends AbstractFormLoginAuthenticator implements PasswordAuthenticatedInterface
+class LoginFormAuthenticator extends AbstractFormLoginAuthenticator implements PasswordAuthenticatedInterface
 {
     use TargetPathTrait;
 
-    public const LOGIN_ROUTE = 'app_login';
+    public const LOGIN_ROUTE = 'login';
 
     private $entityManager;
     private $urlGenerator;
@@ -79,7 +79,19 @@ class LoginCustomAuthenticator extends AbstractFormLoginAuthenticator implements
 
     public function checkCredentials($credentials, UserInterface $user)
     {
-        return $this->passwordEncoder->isPasswordValid($user, $credentials['password']);
+        if($this->passwordEncoder->isPasswordValid($user, $credentials['password']))
+        {
+            if($user->getEnabled() === false)
+            {
+                throw new CustomUserMessageAuthenticationException('Le compte n\'est pas activé.');
+            }
+            return true;
+        }
+        else
+        {
+            throw new CustomUserMessageAuthenticationException('Le mail ou mot de passe est incorrect.');
+        }
+        return false;
     }
 
     /**
@@ -96,12 +108,17 @@ class LoginCustomAuthenticator extends AbstractFormLoginAuthenticator implements
             return new RedirectResponse($targetPath);
         }
 
-        // For example : return new RedirectResponse($this->urlGenerator->generate('some_route'));
-        throw new \Exception('TODO: provide a valid redirect inside '.__FILE__);
+        if ($targetPath = $request->request->get('_target_path')) {
+            return new RedirectResponse($targetPath);
+        }
+
+        return new RedirectResponse($this->urlGenerator->generate('home'));
+
     }
 
     protected function getLoginUrl()
     {
         return $this->urlGenerator->generate(self::LOGIN_ROUTE);
     }
+
 }
