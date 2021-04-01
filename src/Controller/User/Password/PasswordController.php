@@ -41,6 +41,6 @@ class PasswordController extends AbstractController
             }
             return $this->redirectToRoute('home');
         }
-        return $this->render('user/Password/forgot_Password.html.twig');
+        return $this->render('user/password/forgot_Password.html.twig');
     }
 }
