@@ -6,6 +6,14 @@ registration:
     path: /registration
     controller: App\Controller\User\RegistreController
 
+##userProfiler##
+account:
+    path: /account
+    controller: App\Controller\User\AccountController
+
+edit_user:
+    path: /account/edit_user
+    controller: App\Controller\User\EditUserController
 ##userIdentification##
 login:
     path: /login
