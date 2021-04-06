@@ -2,6 +2,7 @@
 
 namespace App\service;
 
+use App\Entity\Contact;
 use App\Entity\User;
 use Swift_Mailer;
 use Swift_Message;
@@ -24,7 +25,9 @@ class MailerService{
         $this->mailer = $mailer;
         $this->view = $view;
         $this->templatesLinks = [
+            "resetPassword" => "mail/resetPassword.html.twig",
             "activationLink" => "mail/activationLink.html.twig",
+            "contactMessage" => "mail/contactMessage.html.twig",
         ];
     }
 
@@ -32,8 +35,8 @@ class MailerService{
     {
         $template = $this->templatesLinks[$type];
 
-        $contactMail = (new Swift_Message("An important email from FindLab.com"))
-            ->setFrom("admin@findlab.com")
+        $contactMail = (new Swift_Message("An important email from Jardibox.com"))
+            ->setFrom("admin@jardibox.com")
             ->setTo($user->getEmail())
             ->setBody(
                 $this->view->render($template, [
@@ -41,6 +44,35 @@ class MailerService{
                 ]), "text/html"
             );
 
+        $this->mailer->send($contactMail);
+    }
+
+    public function sendResetPassword( User $user, string $url, string $type)
+    {
+        $template = $this->templatesLinks[$type];
+
+        $contactMail = (new Swift_Message("An important email from Jardibox.com"))
+            ->setFrom("admin@jardibox.com")
+            ->setTo($user->getEmail())
+            ->setBody(
+                $this->view->render($template, [
+                    "url" => $url
+                ]), "text/html"
+            );
+
+        $this->mailer->send($contactMail);
+    }
+
+    public function sendContactMessage(Contact $contact, string $type)
+    {
+        $template = $this->templatesLinks[$type];
+        $contactMail = (new Swift_Message("An important email from Jardibox.com"))
+        ->setFrom("admin@jardibox.com")
+            ->setTo($contact->getEmail())
+            ->setBody(
+                $this->view->render($template
+                ), "text/html"
+            );
         $this->mailer->send($contactMail);
     }
 

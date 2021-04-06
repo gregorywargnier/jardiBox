@@ -15,7 +15,7 @@ class UserService
             $token = bin2hex(random_bytes(64));
         } catch (Exception $e) {
         }
-        $expire = new DateTime('1 day');
+        $expire = new DateTime('2 day');
 
         if (!empty($token)) {
             $user->setToken($token);
@@ -25,7 +25,7 @@ class UserService
 
     public function resetToken( User $user)
     {
-        $user->setToken(null);
+        $user->setToken(bin2hex(random_bytes(64)));
         $user->setTokenExpire(null);
     }
 }

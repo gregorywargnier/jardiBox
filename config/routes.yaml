@@ -6,6 +6,14 @@ registration:
     path: /registration
     controller: App\Controller\User\RegistreController
 
+user_activate:
+    path: /activate/{token}
+    controller: App\Controller\User\ActivateController
+
+user_resen_activate:
+    path: /resen_activate/{id}
+    controller: App\Controller\User\ResenActivateTokenController
+
 ##userProfiler##
 account:
     path: /account
@@ -22,6 +30,11 @@ renew_password:
 forgot_password:
     path: /forgot_password
     controller: App\Controller\User\Password\PasswordController
+
+reset_password:
+    path: /reset_password
+    controller: App\Controller\User\Password\ResetPasswordController
+
 ##userIdentification##
 login:
     path: /login
