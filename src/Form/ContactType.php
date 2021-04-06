@@ -39,7 +39,7 @@ class ContactType extends AbstractType
                     ])
                 ]
             ])
-            ->add('mail',EmailType::class, [
+            ->add('email',EmailType::class, [
                 "label" => "Email",
                 "attr" => [
                     "class" => "form-control",

@@ -1,6 +1,48 @@
 home:
     path: /
     controller: App\Controller\HomeController
+##userRegister##
+registration:
+    path: /registration
+    controller: App\Controller\User\RegistreController
+
+user_activate:
+    path: /activate/{token}
+    controller: App\Controller\User\ActivateController
+
+user_resen_activate:
+    path: /resen_activate/{id}
+    controller: App\Controller\User\ResenActivateTokenController
+
+##userProfiler##
+account:
+    path: /account
+    controller: App\Controller\User\AccountController
+
+edit_user:
+    path: /account/edit_user
+    controller: App\Controller\User\EditUserController
+
+renew_password:
+    path: /user/account/renew_password
+    controller: App\Controller\User\Password\RenewPasswordController
+
+forgot_password:
+    path: /forgot_password
+    controller: App\Controller\User\Password\PasswordController
+
+reset_password:
+    path: /reset_password
+    controller: App\Controller\User\Password\ResetPasswordController
+
+##userIdentification##
+login:
+    path: /login
+    controller: App\Controller\User\Security\SecurityController
+
+logout:
+    path: /logout
+    controller: App\Controller\User\Security\SecurityController
 
 garden:
     path: /garden
@@ -33,6 +75,11 @@ fidelity:
 gift-card:
     path: /gift-card
     controller: App\Controller\Services\GiftcardController
+
+##information##
+newsletter:
+    path: /newsletter
+    controller: App\Controller\contact\NewsletterController
 
 contact:
     path: /contact

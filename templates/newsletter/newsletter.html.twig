@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}contact{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <h1> Contact us </h1>
+        <p class="text-center">Pour rester connecter avec nous, donnez votre mail </p>
+        <div class="justify-content-center text-center">
+            {{ form_start( form ) }}
+            <div class="row mt-2">
+                <div class="col-10">
+                    {{ form_label(form.email) }}
+                    {{ form_widget(form.email) }}
+                    <div class="invalid-feedback">
+                        {{ form_errors(form.email) }}
+                    </div>
+                </div>
+                <div class="col-12">
+                    <button type="submit" class="btn btn-primary">{% trans %} Send {% endtrans %}</button>
+                </div>
+            </div>
+        </div>
+        {{ form_end(form) }}
+    </div>
+{% endblock %}
