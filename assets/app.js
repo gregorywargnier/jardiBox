@@ -15,6 +15,15 @@ require('jquery');
 // start the Stimulus application
 import './bootstrap';
 
+//image
+import('./images/imageHome.jpg')
+import('./images/argent.jpg')
+import('./images/payement.jpg')
+import('./images/bouquet.jpg')
+import('./images/feuille.jpg')
+import('./images/etude.jpg')
+import('./images/remboursement.jpg')
+
 require('@fortawesome/fontawesome-free/css/all.min.css');
 require('@fortawesome/fontawesome-free/js/all.js');
 
