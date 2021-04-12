@@ -44,6 +44,11 @@ logout:
     path: /logout
     controller: App\Controller\User\Security\SecurityController
 
+##admin##
+admin:
+    path: /admin
+    controller: App\Controller\Admin\DashboardController::index
+
 garden:
     path: /garden
     controller: App\Controller\allCategories\GardenController
