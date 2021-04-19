@@ -3,7 +3,6 @@
 {% block title %}home{% endblock %}
 
 {% block content %}
-        <h1>bienvenue</h1>
         <div class="imageHome">
         </div>
     <div class="container">
@@ -11,12 +10,12 @@
         <div class="row">
             {% for Universe in universe %}
                 <div class="col-6">
-                    <div class="card" style="width: 18rem;">
-                        <img src="{{ vich_uploader_asset(Universe, 'imageFile') }}" class="card-img-top" alt="{{ Universe.title }}">
-                        <div class="card-body">
+                    <div class="card text-white" style="width: 18rem;">
+                        <img src="{{ vich_uploader_asset(Universe, 'imageFile') }}" class="card-img" alt="{{ Universe.title }}">
+                        <div class="card-img-overlay text-center">
                             <h5 class="card-title">{{ Universe.title }}</h5>
                             <p class="card-text">{{ Universe.description | raw }}</p>
-                            <a href="{{ path('allCategories') }}" class="btn btn-primary">Découvrir</a>
+                            <a href="{{ path('allCategories', {'OurUniverse': Universe.id}) }}" class="btn btn-primary">Découvrir</a>
                         </div>
                     </div>
                 </div>

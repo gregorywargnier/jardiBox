@@ -13,13 +13,15 @@ class AllCategoriesController extends AbstractController
 {
     public function __invoke(Request $request, AllCategoryRepository $allCategoryRepository): Response
     {
-        $category = $request->query->get('categories');
-        $myUniverse = $allCategoryRepository->findBy(
-            ['universe' => $category]
+        $myUniverse = $request->query->get('OurUniverse');
+
+        $category = $allCategoryRepository->findBy(
+            ['universe' => $myUniverse]
         );
+
         return $this->render('allCategories/allCategories.html.twig', [
-            'categories' => $category,
-            'universe' => $myUniverse,
+            'universe' => $category,
+
         ]);
     }
 
