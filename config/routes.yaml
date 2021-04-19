@@ -49,6 +49,11 @@ admin:
     path: /admin
     controller: App\Controller\Admin\DashboardController::index
 
+##allcategories##
+allCategories:
+    path: /allcategories
+    controller: App\Controller\allCategories\AllCategoriesController
+
 garden:
     path: /garden
     controller: App\Controller\allCategories\GardenController
