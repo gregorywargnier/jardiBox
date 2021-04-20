@@ -1,6 +1,7 @@
 home:
     path: /
     controller: App\Controller\HomeController
+
 ##userRegister##
 registration:
     path: /registration
