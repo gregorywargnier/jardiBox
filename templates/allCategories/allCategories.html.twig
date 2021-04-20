@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}allcategories{% endblock %}
+
+{% block content %}
+    {% for allCategories in universe %}
+    <h1>nos categories:{{ allCategories.universe }} </h1>
+        <div class="container">
+            <div class="row">
+                <div class="col-6">
+                    <div class="card" style="width: 18rem;">
+                        <img src="{{ vich_uploader_asset(allCategories, 'imageFile') }}" class="card-img-top" alt="{{ allCategories.name }}">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">{{ allCategories.name }}</h5>
+                        </div>
+                        <p class="text-center">{{ allCategories.description | raw }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}
