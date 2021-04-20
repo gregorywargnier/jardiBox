@@ -11,7 +11,7 @@
                     <div class="card" style="width: 18rem;">
                         <img src="{{ vich_uploader_asset(product, 'imageFile') }}" class="card-img-top" alt="{{ product.name}}">
                         <div class="card-body">
-                            <h5 class="card-title text-center">{{ product.name}}</h5>
+                           <a href="{{ path('showOne',{'slug': product.slug}) }}"> <h5 class="card-title text-center">{{ product.name}}</h5></a>
                         </div>
                         <p class="text-center">{{ product.brand}}</p>
                         <p class="text-center">{{ product.price }} €</p>
