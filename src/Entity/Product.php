@@ -2,23 +2,21 @@
 
 namespace App\Entity;
 
-use App\Repository\AllCategoryRepository;
+use App\Repository\ProductRepository;
+use Doctrine\ORM\Mapping as ORM;
 use Cocur\Slugify\Slugify;
 use DateTimeImmutable;
 use DateTimeInterface;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
-use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\Validator\Constraints\DateTime;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
- * @ORM\Entity(repositoryClass=AllCategoryRepository::class)
+ * @ORM\Entity(repositoryClass=ProductRepository::class)
  * @Vich\Uploadable
  */
-class AllCategory
+class Product
 {
     /**
      * @ORM\Id
@@ -33,8 +31,13 @@ class AllCategory
     private $name;
 
     /**
-     * @var string|null
      * @ORM\Column(type="string", length=100)
+     */
+    private $brand;
+
+    /**
+     * @var string|null
+     * @ORM\Column(type="string", length=255)
      */
     private $imageName;
 
@@ -50,6 +53,17 @@ class AllCategory
     private $description;
 
     /**
+     * @ORM\Column(type="float")
+     */
+    private $price;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=AllCategory::class, inversedBy="products")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $allCategory;
+
+    /**
      * @ORM\Column(type="string", length=255)
      */
     private $slug;
@@ -59,22 +73,6 @@ class AllCategory
      * @var DateTime
      */
     private $updated_at;
-
-    /**
-     * @ORM\ManyToOne(targetEntity=Universe::class, inversedBy="AllCategory")
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $universe;
-
-    /**
-     * @ORM\OneToMany(targetEntity=Product::class, mappedBy="allCategory")
-     */
-    private $products;
-
-    public function __construct()
-    {
-        $this->products = new ArrayCollection();
-    }
 
     /**
      * return a slug !
@@ -102,6 +100,18 @@ class AllCategory
     public function setName(string $name): self
     {
         $this->name = $name;
+
+        return $this;
+    }
+
+    public function getBrand(): ?string
+    {
+        return $this->brand;
+    }
+
+    public function setBrand(string $brand): self
+    {
+        $this->brand = $brand;
 
         return $this;
     }
@@ -145,6 +155,7 @@ class AllCategory
             // otherwise the event listeners won't be called and the file is lost
             $this->updated_at = new DateTimeImmutable();
         }
+
         return $this;
     }
 
@@ -156,6 +167,30 @@ class AllCategory
     public function setDescription(string $description): self
     {
         $this->description = $description;
+
+        return $this;
+    }
+
+    public function getPrice(): ?float
+    {
+        return $this->price;
+    }
+
+    public function setPrice(float $price): self
+    {
+        $this->price = $price;
+
+        return $this;
+    }
+
+    public function getAllCategory(): ?AllCategory
+    {
+        return $this->allCategory;
+    }
+
+    public function setAllCategory(?AllCategory $allCategory): self
+    {
+        $this->allCategory = $allCategory;
 
         return $this;
     }
@@ -184,50 +219,8 @@ class AllCategory
         return $this;
     }
 
-    public function getUniverse(): ?Universe
-    {
-        return $this->universe;
-    }
-
-    public function setUniverse(?Universe $universe): self
-    {
-        $this->universe = $universe;
-
-        return $this;
-    }
-
     public function __toString()
     {
         return $this->name;
-    }
-
-    /**
-     * @return Collection|Product[]
-     */
-    public function getProducts(): Collection
-    {
-        return $this->products;
-    }
-
-    public function addProduct(Product $product): self
-    {
-        if (!$this->products->contains($product)) {
-            $this->products[] = $product;
-            $product->setAllCategory($this);
-        }
-
-        return $this;
-    }
-
-    public function removeProduct(Product $product): self
-    {
-        if ($this->products->removeElement($product)) {
-            // set the owning side to null (unless already changed)
-            if ($product->getAllCategory() === $this) {
-                $product->setAllCategory(null);
-            }
-        }
-
-        return $this;
     }
 }

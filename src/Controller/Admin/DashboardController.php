@@ -5,6 +5,7 @@ namespace App\Controller\Admin;
 use App\Entity\AllCategory;
 use App\Entity\Contact;
 use App\Entity\Newsletter;
+use App\Entity\Product;
 use App\Entity\Universe;
 use App\Entity\User;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
@@ -39,6 +40,7 @@ class DashboardController extends AbstractDashboardController
             MenuItem::linkToCrud('user', 'fa fa-user', User::class ),
             MenuItem::linkToCrud('Universe', 'fa fa-folder', Universe::class ),
             MenuItem::linkToCrud('AllCategory', 'fa fa-folder-open', AllCategory::class ),
+            MenuItem::linkToCrud('Product', 'fab fa-product-hunt', Product::class ),
             MenuItem::linkToCrud('Contact', 'fa fa-envelope', Contact::class ),
             MenuItem::linkToCrud('Newsletter', 'fa fa-newspaper', Newsletter::class )
         ];
