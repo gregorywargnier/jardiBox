@@ -55,6 +55,10 @@ allCategories:
     path: /allcategories
     controller: App\Controller\allCategories\AllCategoriesController
 
+product:
+    path: /allcategories/product
+    controller: App\Controller\Product\ProductController
+
 garden:
     path: /garden
     controller: App\Controller\allCategories\GardenController

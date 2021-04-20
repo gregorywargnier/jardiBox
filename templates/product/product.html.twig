@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}product{% endblock %}
+
+{% block content %}
+    <h1>product</h1>
+    {% for product in allCategory %}
+        <div class="container">
+            <div class="row">
+                <div class="col-6">
+                    <div class="card" style="width: 18rem;">
+                        <img src="{{ vich_uploader_asset(product, 'imageFile') }}" class="card-img-top" alt="{{ product.name}}">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">{{ product.name}}</h5>
+                        </div>
+                        <p class="text-center">{{ product.brand}}</p>
+                        <p class="text-center">{{ product.price }} €</p>
+                        <p class="text-center">{{ product.description| raw }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}
