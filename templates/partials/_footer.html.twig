@@ -1,12 +1,9 @@
 <footer class="page-footer">
     <div class="container">
-        <div class="d-flex justify-content-between">
+        <div class="d-flex justify-content-around">
             <div>
                 <h3><a href="{{ path('home') }}">JardiBox</a></h3>
                 <p>JardiBox a été élue meilleur site en 2021</p>
-            </div>
-            <div>
-                <h3><a href="{{ path('contact') }}">Contact</a></h3>
             </div>
             <div>
                 <h3>Suivez-nous</h3>
@@ -16,10 +13,11 @@
                     <a href="https://www.youtube.com"><i class="fab fa-youtube fa-lg"></i></a>
                 </div>
             </div>
-
         </div>
+        <div class="footer-copyright">
 
-
+            © {{ "now"|date("Y") }} Copyright JardiBox
+        </div>
     </div>
 </footer>
 

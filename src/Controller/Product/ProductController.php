@@ -15,9 +15,14 @@ class ProductController extends AbstractController
     {
         $myCategory= $request->query->get('category');
 
-        $product= $productRepository->findBy(
-            ['allCategory'=> $myCategory]
-        );
+        if($myCategory){
+            $product= $productRepository->findBy(
+                ['allCategory'=> $myCategory]
+            );
+        }else{
+            $product= $productRepository->findAll();
+        }
+
         return $this->render( 'product/product.html.twig',[
             'allCategory'=> $product,
         ]);
