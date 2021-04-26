@@ -7,11 +7,14 @@
         </div>
     <div class="container">
         <h1>Notre Univers</h1>
+        <div class="hr">
+
+        </div>
         <div class="row">
             {% for Universe in universe %}
-                <div class="col-6">
+                <div class="col-lg-6">
                     <div class="card text-white" style="width: 18rem;">
-                        <img src="{{ vich_uploader_asset(Universe, 'imageFile') }}" class="card-img" alt="{{ Universe.title }}">
+                        <img src="{{ vich_uploader_asset(Universe, 'imageFile') }}" class="" alt="{{ Universe.title }}">
                         <div class="card-img-overlay text-center">
                             <h5 class="card-title">{{ Universe.title }}</h5>
                             <p class="card-text">{{ Universe.description | raw }}</p>
@@ -21,35 +24,26 @@
                 </div>
             {% endfor %}
         </div>
-        <div class="row">
-            <div class="">
-                <div class="card" style="width: 18rem;">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="card-link">Card link</a>
-                        <a href="#" class="card-link">Another link</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-3">
-                <p class="text-center pt-2">JardiBox à votre service</p>
-            </div>
-            <div class="col-3">
-                <div class="card" style="width: 18rem;">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="card-link">Card link</a>
-                        <a href="#" class="card-link">Another link</a>
-                    </div>
-                </div>
-            </div>
 
-
+        <div class="row explication">
+            <div class="col-lg-4 ">
+                <h3>Livraison à domicile</h3>
+                <p>
+                    Pour les commandes sur jardibox.com
+                </p>
+            </div>
+            <div class="col-lg-4">
+                <h3>Click and Collect</h3>
+                <p>
+                    Commandez en ligne. Récupérez vos achats dans votre magasin
+                </p>
+            </div>
+            <div class="col-lg-4">
+                <h3>Satisfait ou remboursé</h3>
+                <p>
+                    15 jours pour changer d'avis
+                </p>
+            </div>
         </div>
     </div>
-
 {% endblock %}

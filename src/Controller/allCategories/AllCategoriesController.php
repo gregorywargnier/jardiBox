@@ -15,13 +15,15 @@ class AllCategoriesController extends AbstractController
     {
         $myUniverse = $request->query->get('OurUniverse');
 
-        $category = $allCategoryRepository->findBy(
-            ['universe' => $myUniverse]
-        );
-
+        if($myUniverse){
+            $category = $allCategoryRepository->findBy(
+                ['universe' => $myUniverse]
+            );
+        }else{
+            $category = $allCategoryRepository->findall();
+        }
         return $this->render('allCategories/allCategories.html.twig', [
             'universe' => $category,
-
         ]);
     }
 

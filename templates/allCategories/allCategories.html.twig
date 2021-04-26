@@ -3,20 +3,21 @@
 {% block title %}allcategories{% endblock %}
 
 {% block content %}
-    {% for allCategories in universe %}
-    <h1>{{ allCategories.universe }} </h1>
-        <div class="container">
+
+    <div class="container">
             <div class="row">
-                <div class="col-6">
-                    <div class="card" style="width: 18rem;">
-                        <a href="{{ path('product', {'category': allCategories.id}) }}"> <img src="{{ vich_uploader_asset(allCategories, 'imageFile') }}" class="card-img-top" alt="{{ allCategories.name }}"></a>
-                        <div class="card-body">
-                            <h5 class="card-title text-center">{{ allCategories.name }}</h5>
-                        </div>
-                        <p class="text-center">{{ allCategories.description | raw }}</p>
+                {% for allCategories in universe %}
+                <div class="col-lg-6 text-center my-4">
+                    <a href="{{ path('product', {'category': allCategories.id}) }}"> <img src="{{ vich_uploader_asset(allCategories, 'imageFile') }}" class="w-100" alt="{{ allCategories.name }}"></a>
+                    <div>
+                        <h5 class="">{{ allCategories.name }}</h5>
+                    </div>
+                    <div>
+                        <p class="">{{ allCategories.description | raw }}</p>
                     </div>
                 </div>
+                {% endfor %}
             </div>
-        </div>
-    {% endfor %}
+    </div>
+
 {% endblock %}
