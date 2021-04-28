@@ -18,9 +18,15 @@
             <div>
                 <p>{{ product.description | raw}}</p>
             </div>
+            {% if product.stock > 0 %}
             <div>
                 <button type="button" class="btn btn-primary btn-lg ">ajouter au panier</button>
             </div>
+            {% else %}
+            <div>
+                <p class="mb-4 text-danger">Nous n'avons plus se produit en stock</p>
+            </div>
+            {% endif %}
         </div>
     </div>
 </div>

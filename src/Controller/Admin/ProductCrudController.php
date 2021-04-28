@@ -7,6 +7,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\IntegerField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\NumberField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
@@ -33,6 +34,7 @@ class ProductCrudController extends AbstractCrudController
                 ->setBasePath('dataImage/products'),
             TextField::new('slug'),
             NumberField::new('price'),
+            IntegerField::new('stock'),
             TextareaField::new('imageFile')
                 ->setFormType(VichImageType::class)
                 ->setFormTypeOption('allow_delete', false)
