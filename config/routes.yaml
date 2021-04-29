@@ -62,6 +62,19 @@ product:
 showOne:
     path: /allcategories/product/showOne/{slug}
     controller: App\Controller\Product\OneProductController
+
+##Cart##
+Cart:
+    path: /cart
+    controller: App\Controller\Cart\CartController
+
+addCart:
+    path: /cart/{id}
+    controller: App\Controller\Cart\AddCartController
+
+removeCart:
+    path: /cart/remove/{id}
+    controller: App\Controller\Cart\CardRemoveController
 garden:
     path: /garden
     controller: App\Controller\allCategories\GardenController

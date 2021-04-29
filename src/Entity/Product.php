@@ -75,6 +75,11 @@ class Product
     private $updated_at;
 
     /**
+     * @ORM\Column(type="integer")
+     */
+    private $stock;
+
+    /**
      * return a slug !
      *
      * @ORM\PrePersist
@@ -222,5 +227,17 @@ class Product
     public function __toString()
     {
         return $this->name;
+    }
+
+    public function getStock(): ?int
+    {
+        return $this->stock;
+    }
+
+    public function setStock(int $stock): self
+    {
+        $this->stock = $stock;
+
+        return $this;
     }
 }
