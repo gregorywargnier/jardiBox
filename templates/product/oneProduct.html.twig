@@ -24,7 +24,7 @@
                 </div>
             {% else %}
                 <div>
-                    <a href="{{ path('Cart', {'id': product.id}) }}"><button type="button" class="btn btn-primary btn-lg ">ajouter au panier</button></a>
+                    <a href="{{ path('addCart', {'id': product.id}) }}"><button type="button" class="btn btn-primary btn-lg ">ajouter au panier</button></a>
                 </div>
             {% endif %}
         </div>
