@@ -24,6 +24,7 @@ class CartService
 
         if(!empty($panier[$id])){
             $panier[$id]++;
+            
         }else{
             $panier[$id]= 1;
         }
@@ -42,7 +43,7 @@ class CartService
         $this->session->set('panier', $panier);
     }
 
-    public function fullCart() :array
+    public function fullCart():array
     {
         $panier = $this->session->get('panier', []);
 
@@ -61,7 +62,7 @@ class CartService
     {
         $total = 0;
         foreach ($this->fullCart() as $item){
-            $total += $item['product']->getPrice() * $item['quantity'];;
+            $total += $item['product']->getPrice() * $item['quantity'];
         }
 
         return $total;
