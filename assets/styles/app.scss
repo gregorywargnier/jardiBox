@@ -24,6 +24,27 @@ a {
   color:black;
   text-decoration:none;
 }
+.navbar{
+  background-color: #739435;
+  $base-color: black;
+
+  .nav-link:hover{
+    color: lighten( $base-color, 100% );
+  }
+  .navbar-brand:hover{
+    color: lighten( $base-color, 100% );
+  }
+}
+
+a:link{
+  text-decoration:none;
+}
+// Champs recherche
+
+.search-input-space {
+  margin-right: 8px;
+}
+
 a:link{
   text-decoration:none;
 }

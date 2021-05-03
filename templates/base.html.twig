@@ -36,11 +36,13 @@
     {% endblock %}
     <main>
         {% block content %}
-        {% endblock %}
-    </main>
+
     <body>
         {% block body %}{% endblock %}
     </body>
+
+        {% endblock %}
+    </main>
     {% block summary %}
         {% include "partials/_summary.html.twig" %}
     {% endblock %}
